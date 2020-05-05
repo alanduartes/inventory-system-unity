@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
-    public PlayerInventory inventory;
+    private IInventory inventory;
     public GameObject slotsContainer;
     public GameObject slot;
     private bool isOpen = false;
