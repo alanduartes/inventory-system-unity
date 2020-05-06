@@ -6,6 +6,6 @@ public class Slot : MonoBehaviour
 {
     public void Remove()
     {
-        Debug.Log("TESTE");
+        Inventory.instance.Remove(gameObject);
     }
 }

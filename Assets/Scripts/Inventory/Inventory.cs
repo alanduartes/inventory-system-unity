@@ -29,15 +29,17 @@ public class Inventory : MonoBehaviour
     public void Add(GameObject item)
     {
         inventory.AddItem(item);
+        Instantiate(slot, slotsContainer.transform, false);
         UpdateSlots();
     }
 
     public void Remove(GameObject item)
     {
-        Debug.Log("Teste");
-        inventory.RemoveItem(item);
-        UpdateSlots();
+        int itemIndex = item.transform.GetSiblingIndex();
+        inventory.RemoveItem(itemIndex);
+        Destroy(item);
     }
+    
     public void OpenInventory()
     {
         if (isOpen) {
@@ -53,8 +55,6 @@ public class Inventory : MonoBehaviour
     {
         List<GameObject> listItems = inventory.GetInventory();
         int idx = 0;
-
-        Instantiate(slot, slotsContainer.transform, false);
 
         foreach (Transform slot in slotsContainer.transform) {
             slot.transform.GetChild(0).GetComponent<Image>().sprite = listItems[idx].GetComponent<SpriteRenderer>().sprite;

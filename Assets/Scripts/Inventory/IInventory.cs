@@ -6,5 +6,5 @@ interface IInventory
 {
     List<GameObject> GetInventory();
     void AddItem(GameObject item);
-    void RemoveItem(GameObject item);
+    void RemoveItem(int index);
 }

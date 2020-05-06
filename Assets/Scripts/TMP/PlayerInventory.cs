@@ -22,8 +22,8 @@ public class PlayerInventory : IInventory
         inventory.Add(item);
     }
 
-    public void RemoveItem(GameObject item)
+    public void RemoveItem(int index)
     {
-        inventory.Remove(item);
+        inventory.RemoveAt(index);
     }
 }
